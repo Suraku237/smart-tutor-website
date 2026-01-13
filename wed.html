@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTutor | Learning Reimagined</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7c4dff;
+            --secondary: #b388ff;
+            --bg-dark: #0f0f12;
+            --card-bg: #1a1a20;
+            --text-light: #f5f5f7;
+            --text-dim: #a1a1aa;
+            --android-green: #3DDC84;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 15, 18, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at top, #2d1b4d 0%, var(--bg-dark) 70%);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+        }
+
+        /* Button Styles */
+        .btn-download {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 25px;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-download:hover {
+            background-color: transparent;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Section Settings */
+        .section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        /* App Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .screenshot-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+        }
+
+        /* Developer Cards with Images */
+        .dev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .dev-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 24px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary);
+        }
+
+        .dev-image-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary);
+            background: #222;
+        }
+
+        .dev-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dev-card h3 {
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+
+        .dev-card .role {
+            color: var(--primary);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .dev-card ul {
+            list-style: none;
+            color: var(--text-dim);
+            text-align: left;
+            display: inline-block;
+        }
+
+        .dev-card ul li {
+            margin-bottom: 8px;
+        }
+
+        .dev-card ul li::before {
+            content: "▹";
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* Download Section */
+        .download-cta {
+            background: linear-gradient(135deg, #1a1a20 0%, #0f0f12 100%);
+            padding: 100px 5%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .download-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #333;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .dev-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SmartTutor</div>
+        <div class="nav-links">
+            <a href="#features">Why Us</a>
+            <a href="#gallery">Interface</a>
+            <a href="#team">Developers</a>
+            <a href="#download">Get App</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Bridge the gap between static content and interaction.</h1>
+        <p>Advanced NLP feedback, seamless PDF delivery, and high-performance architecture for the modern learner.</p>
+        <a href="#download" class="btn-download">
+            <i class="fab fa-android"></i> Download APK
+        </a>
+    </header>
+
+    <section class="section" id="features">
+        <div class="section-title">
+            <h2>Why Choose SmartTutor?</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div class="dev-card">
+                <i class="fas fa-comments" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <h3>Interactive Feedback</h3>
+                <p>We integrated a community chat system to have constant feedback between students, teachers, and admins.</p>
+            </div>
+            <div class="dev-card">
+                <i class="fas fa-bolt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <h3>Decoupled Architecture</h3>
+                <p>Built with FastAPI and Flutter for lightning-fast performance across all mobile devices.</p>
+            </div>
+            <div class="dev-card">
+                <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <h3>Secure Infrastructure</h3>
+                <p>Hosted on a private VPS with custom MySQL instances to ensure user data remains private and secure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="gallery">
+        <div class="section-title">
+            <h2>Experience the Interface</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="screenshot-card"><p>Auth</p><img src="login.png" alt="Login"><span>Secure Entry</span></div>
+            <div class="screenshot-card"><p>Home</p><img src="home.png" alt="Home"><span>Subjects</span></div>
+            <div class="screenshot-card"><p>Chat</p><img src="chart.png" alt="Chat"><span>Community</span></div>
+            <div class="screenshot-card"><p>Admin</p><img src="HomeAdmins.png" alt="Admin"><span>Dashboard</span></div>
+            <div class="screenshot-card"><p>Delete</p><img src="delete.png" alt="Manage"><span>Resources</span></div>
+        </div>
+    </section>
+
+    <section class="section" id="team">
+        <div class="section-title">
+            <h2>The Brains Behind SmartTutor</h2>
+        </div>
+        <div class="dev-grid">
+            <div class="dev-card">
+                <div class="dev-image-container">
+                    <img src="kwete_junior.jpg" alt="Kwete Junior"> </div>
+                <h3>Kwete Junior</h3>
+                <span class="role">Full-Stack & DevOps Engineer</span>
+                <ul>
+                    <li>Architected FastAPI backend</li>
+                    <li>Managed VPS deployment & Security</li>
+                    <li>Integrated MySQL & AI logic</li>
+                </ul>
+            </div>
+
+            <div class="dev-card">
+                <div class="dev-image-container">
+                    <img src="chijioke_emmanuel.jpg" alt="Chijioke Emmanuel"> </div>
+                <h3>Chijioke Emmanuel</h3>
+                <span class="role">Lead Mobile Developer</span>
+                <ul>
+                    <li>Designed Flutter UI/UX</li>
+                    <li>Implemented Theme Management</li>
+                    <li>Developed PDF rendering engine</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="download-cta" id="download">
+        <h2>Ready to start learning smarter?</h2>
+        <p>Experience SmartTutor on your Android device today.</p>
+        <a href="SmartTutor.apk" download class="btn-download" style="background-color: var(--android-green); color: #000;">
+            <i class="fab fa-android"></i> Download APK (v1.0)
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SmartTutor Team. Built for the future of education.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.screenshot-card, .dev-card').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 0.6s ease-out";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
