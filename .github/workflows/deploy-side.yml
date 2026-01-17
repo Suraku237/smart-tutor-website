@@ -12,11 +12,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 🚚 Overwrite Live Files
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v0.1.7 # Stable version
         with:
           host: "109.199.120.38"
           username: "root"
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: "*"            # Grabs all files from this repo
-          target: "/var/www/smart-tutor" # The live folder on your VPS
-          overwrite: true        # Replaces old files with the new ones
+          source: "*"
+          target: "/var/www/smart-tutor"
+          overwrite: true       # Replaces old files with the new ones
